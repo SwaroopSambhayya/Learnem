@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Learnem',
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xff4a6c7a),
+        scaffoldBackgroundColor: Color(0xff527788),
         primarySwatch: Colors.blue,
         textTheme: TextTheme(
           bodyText1: TextStyle(color: Color(0xFFD6D2D1), fontFamily: "Lexend"),

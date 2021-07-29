@@ -115,15 +115,31 @@ class Lessons extends StatelessWidget {
                       )
                     ],
                   ),
-                  Tabs(),
-                  ...listData.map(
-                    (list) => LessonTile(
-                      title: list["title"],
-                      time: list["time"],
-                      imageUrl: list["imageUrl"],
-                      assignments: list["assignments"],
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xff4a6c7a),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        Tabs(),
+                        ...listData.map(
+                          (list) => LessonTile(
+                            title: list["title"],
+                            time: list["time"],
+                            imageUrl: list["imageUrl"],
+                            assignments: list["assignments"],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  SizedBox(
+                    height: 60,
+                  )
                 ],
               ),
             ),
