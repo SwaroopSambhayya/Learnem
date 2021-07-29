@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learnem/screens/home.dart';
-import 'package:learnem/screens/lessons.dart';
 import 'package:learnem/screens/onboarding.dart';
 
 void main() {

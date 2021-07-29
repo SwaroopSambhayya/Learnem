@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:learnem/screens/components/CustomButton.dart';
 import 'package:learnem/screens/components/Tabs.dart';
 import 'package:learnem/screens/components/lessonTile.dart';
 import 'package:learnem/screens/components/myIconButton.dart';
