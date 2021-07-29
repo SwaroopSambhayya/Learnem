@@ -336,15 +336,19 @@ class MostPopular extends StatelessWidget {
                   onRatingUpdate: (rating) {
                     print(rating);
                   }),
-              Container(
-                margin: EdgeInsets.only(top: 10.0),
-                child: Text(
-                  "\$12.50",
-                  style: TextStyle(
-                      fontFamily: "Lexend",
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+              Flexible(
+                child: Container(
+                  margin: EdgeInsets.only(top: 10.0, left: 5),
+                  child: FittedBox(
+                    child: Text(
+                      "\$12.50",
+                      style: TextStyle(
+                          fontFamily: "Lexend",
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ),
               )
             ],

@@ -41,6 +41,9 @@ class _TabsState extends State<Tabs> {
               Expanded(
                 child: MyIconButton(
                   text: "Lessons",
+                  padding: MediaQuery.of(context).size.width < 330
+                      ? EdgeInsets.only(left: 0, top: 17, bottom: 17)
+                      : null,
                   margin: 0,
                   onTap: () {
                     setState(() {

@@ -104,13 +104,23 @@ class Lessons extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      MyIconButton(
-                        iconData: IconlyLight.document,
-                        text: "11 lessons",
+                      Flexible(
+                        child: MyIconButton(
+                          iconData: IconlyLight.document,
+                          text: "11 lessons",
+                          margin: MediaQuery.of(context).size.width < 330
+                              ? 2
+                              : null,
+                        ),
                       ),
-                      MyIconButton(
-                        iconData: IconlyLight.timeCircle,
-                        text: "6 hours",
+                      Flexible(
+                        child: MyIconButton(
+                          iconData: IconlyLight.timeCircle,
+                          text: "6 hours",
+                          margin: MediaQuery.of(context).size.width < 330
+                              ? 5
+                              : null,
+                        ),
                       )
                     ],
                   ),

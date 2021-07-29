@@ -85,7 +85,11 @@ class LessonTile extends StatelessWidget {
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
                     ),
-                    Spacer(),
+                    if (MediaQuery.of(context).size.width > 330) Spacer(),
+                    if (MediaQuery.of(context).size.width < 330)
+                      SizedBox(
+                        width: 5,
+                      ),
                     Icon(IconlyLight.paper,
                         color: Theme.of(context).primaryColor),
                     SizedBox(
@@ -95,9 +99,10 @@ class LessonTile extends StatelessWidget {
                       assignments + " assignments",
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,
-                          fontSize: 14,
+                          fontSize:
+                              MediaQuery.of(context).size.width < 330 ? 10 : 14,
                           fontWeight: FontWeight.w600),
-                    )
+                    ),
                   ],
                 ),
               ),
