@@ -3,8 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:learnem/screens/components/bottomBar.dart';
 import 'package:learnem/screens/components/myIconButton.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:learnem/screens/lessons.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -168,49 +170,7 @@ class _HomeState extends State<Home> {
               bottom: 5,
               right: 10,
               left: 10,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                        icon: Icon(
-                          IconlyLight.category,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {}),
-                    IconButton(
-                        icon: Icon(
-                          IconlyLight.chat,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {}),
-                    IconButton(
-                        icon: Icon(
-                          IconlyLight.bag,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {}),
-                    IconButton(
-                        icon: Icon(
-                          IconlyLight.bookmark,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {}),
-                    IconButton(
-                        icon: Icon(
-                          IconlyLight.profile,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        onPressed: () {})
-                  ],
-                ),
-              ),
+              child: BottomBar(),
             )
           ],
         ),
@@ -250,59 +210,69 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Color(0xffBBCBD3).withOpacity(0.3),
-        borderRadius: BorderRadius.circular(22),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              imageUrl,
-              width: maxWidth,
-              fit: BoxFit.cover,
-            ),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Lessons(),
           ),
-          Stack(
-            children: [
-              Container(
-                width: 150,
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: SvgPicture.asset(
-                    "assets/images/arrow.svg",
-                    color: Colors.white,
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: Color(0xffBBCBD3).withOpacity(0.3),
+          borderRadius: BorderRadius.circular(22),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset(
+                imageUrl,
+                width: maxWidth,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Stack(
+              children: [
+                Container(
+                  width: 150,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: SvgPicture.asset(
+                      "assets/images/arrow.svg",
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 20,
-                child: Text(
-                  "Free \nSeminar",
-                  textAlign: TextAlign.left,
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
+                Positioned(
+                  top: 20,
+                  child: Text(
+                    "Free \nSeminar",
+                    textAlign: TextAlign.left,
+                    style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "28 Jul, 2021",
-            style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                fontWeight: FontWeight.w600),
-          )
-        ],
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "28 Jul, 2021",
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w600),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -315,60 +285,70 @@ class MostPopular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 15, bottom: 15, right: 10, left: 10),
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Color(0xffBBCBD3).withOpacity(0.3),
-        borderRadius: BorderRadius.circular(22),
-      ),
-      child: ListTile(
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset("assets/images/artist.jpg"),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Lessons(),
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(top: 15, bottom: 15, right: 10, left: 10),
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: Color(0xffBBCBD3).withOpacity(0.3),
+          borderRadius: BorderRadius.circular(22),
         ),
-        title: Text(
-          "The Ultimate Pro Drawing Special Course",
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-        ),
-        subtitle: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            RatingBar(
-                itemSize: 20,
-                itemPadding: EdgeInsets.only(top: 7),
-                initialRating: 4,
-                itemCount: 5,
-                ratingWidget: RatingWidget(
-                  full: Icon(
-                    IconlyBold.star,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  half: Icon(IconlyBold.star,
-                      color: Theme.of(context).primaryColor),
-                  empty: Icon(
-                    IconlyBold.star,
-                    color: Theme.of(context).primaryColor.withOpacity(0.5),
-                  ),
+        child: ListTile(
+          leading: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset("assets/images/artist.jpg"),
+          ),
+          title: Text(
+            "The Ultimate Pro Drawing Special Course",
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
                 ),
-                onRatingUpdate: (rating) {
-                  print(rating);
-                }),
-            Container(
-              margin: EdgeInsets.only(top: 10.0),
-              child: Text(
-                "\$12.50",
-                style: TextStyle(
-                    fontFamily: "Lexend",
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
-          ],
+          ),
+          subtitle: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              RatingBar(
+                  itemSize: 20,
+                  itemPadding: EdgeInsets.only(top: 7),
+                  initialRating: 4,
+                  itemCount: 5,
+                  ratingWidget: RatingWidget(
+                    full: Icon(
+                      IconlyBold.star,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    half: Icon(IconlyBold.star,
+                        color: Theme.of(context).primaryColor),
+                    empty: Icon(
+                      IconlyBold.star,
+                      color: Theme.of(context).primaryColor.withOpacity(0.5),
+                    ),
+                  ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  }),
+              Container(
+                margin: EdgeInsets.only(top: 10.0),
+                child: Text(
+                  "\$12.50",
+                  style: TextStyle(
+                      fontFamily: "Lexend",
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

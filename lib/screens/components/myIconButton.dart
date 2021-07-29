@@ -7,11 +7,17 @@ class MyIconButton extends StatelessWidget {
   final IconData iconData;
   final String text;
   final String imageData;
+  final BorderRadius borderRadius;
+  final double margin;
+  final EdgeInsets padding;
   final bool isTransaparent;
   final Function onTap;
   MyIconButton(
       {this.iconData,
       this.text,
+      this.margin,
+      this.padding,
+      this.borderRadius,
       this.imageData,
       this.isTransaparent = true,
       this.onTap});
@@ -22,16 +28,19 @@ class MyIconButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        margin: EdgeInsets.all(20),
-        padding: EdgeInsets.only(top: 17, bottom: 17, left: 16, right: 17),
+        margin: margin != null ? EdgeInsets.all(margin) : EdgeInsets.all(20),
+        padding: padding == null
+            ? EdgeInsets.only(top: 17, bottom: 17, left: 16, right: 17)
+            : padding,
         decoration: BoxDecoration(
             color: !isTransaparent
                 ? Theme.of(context).primaryColor
                 : Colors.transparent,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius:
+                borderRadius != null ? borderRadius : BorderRadius.circular(15),
             border: isTransaparent
                 ? Border.all(color: textColor, width: 2)
-                : Border.all(color: Colors.transparent),
+                : Border.all(color: Theme.of(context).primaryColor, width: 2),
             boxShadow: [
               if (!isTransaparent)
                 BoxShadow(
@@ -40,6 +49,7 @@ class MyIconButton extends StatelessWidget {
                     blurRadius: 25)
             ]),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (iconData != null)
               Icon(
